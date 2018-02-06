@@ -8,6 +8,7 @@ namespace TechJobs.Controllers
     public class ListController : Controller
     {
         internal static Dictionary<string, string> columnChoices = new Dictionary<string, string>();
+        internal static Dictionary<string, string> jobFields = new Dictionary<string, string>();
 
         // This is a "static constructor" which can be used
         // to initialize static members of a class
@@ -19,6 +20,12 @@ namespace TechJobs.Controllers
             columnChoices.Add("location", "Location");
             columnChoices.Add("position type", "Position Type");
             columnChoices.Add("all", "All");
+
+            jobFields.Add("name", "Name");
+            jobFields.Add("core competency", "Skill");
+            jobFields.Add("employer", "Employer");
+            jobFields.Add("location", "Location");
+            jobFields.Add("position type", "Position Type");
         }
 
         public IActionResult Index()
