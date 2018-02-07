@@ -37,31 +37,19 @@
     
         @foreach (Dictionary<string, string> job in ViewBag.jobs)
         {
-
+            <div>
             <table class="job-listing">
 
                 @foreach (KeyValuePair<string, string> jobKv in job)
                 {
                     <tr>
                         <td>@ViewBag.fields[jobKv.Key]</td>
-                        <td>
-                            @if (ViewBag.columns.ContainsKey(jobKv.Key))
-                            {
-                                <a asp-controller="List"
-                                   asp-action="Jobs"
-                                   asp-route-column="@jobKv.Key"
-                                   asp-route-value="@jobKv.Value">
-                                    @jobKv.Value
-                                </a>
-                            }
-                            else
-                            {
-                                @jobKv.Value
-                            }
-                        </td>
+                        <td>@jobKv.Value</td>
                     </tr>
+                                                              
                 }
             </table>
+                </div>
         }
 
 

@@ -30,12 +30,15 @@ namespace TechJobs.Controllers
 
         public IActionResult Index()
         {
+
             ViewBag.columns = columnChoices;
             return View();
         }
 
         public IActionResult Values(string column)
         {
+            ViewBag.fields = ListController.jobFields;
+
             if (column.Equals("all"))
             {
                 List<Dictionary<string, string>> jobs = JobData.FindAll();
@@ -55,6 +58,7 @@ namespace TechJobs.Controllers
 
         public IActionResult Jobs(string column, string value)
         {
+            ViewBag.fields = ListController.jobFields;
             List<Dictionary<String, String>> jobs = JobData.FindByColumnAndValue(column, value);
             ViewBag.title = "Jobs with " + columnChoices[column] + ": " + value;
             ViewBag.jobs = jobs;
